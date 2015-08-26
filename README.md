@@ -1,7 +1,7 @@
 Gulp Sass Packager
 ====================
 
-![sicklifes build status](https://travis-ci.org/crivas/gulp-sass-packager.svg?branch=master)
+![gulp-sass-packager build status](https://travis-ci.org/crivas/gulp-sass-packager.svg?branch=master)
 
 > Dynamically imports sass files into one sass file with passed in a config object
 
