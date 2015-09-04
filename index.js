@@ -8,14 +8,15 @@
 
 var jsonfile = require('jsonfile'),
   fs = require('fs'),
+  _ = require('underscore-node'),
+  sassPackager = require('./lib/sassPackager'),
   through = require('through2'),
-  gutil = require('gulp-util'),
-  _ = require('underscore-node');
+  gutil = require('gulp-util');
 
 /**
  * dynamically imports sass files based on folder names
  */
-var sassImportInjector = function (options) {
+var gulpSassPackager = function (options) {
 
   var packagesJSON;
 
@@ -29,35 +30,6 @@ var sassImportInjector = function (options) {
     packagesJSON = './ute-package.json';
   }
 
-  /**
-   * adds import string to the sass files
-   */
-  var injectImports = function (sassFile) {
-
-    var newSass = sassFile;
-
-    newSass += '\n';
-    newSass += '// ute imports\n';
-
-    _.each(packagesJSON.components, function (moduleName, key) {
-      if (moduleName) {
-        newSass += '@import "' + key + '/' + key + '";\n';
-      }
-    });
-
-    newSass += '\n';
-    newSass += '// brand imports\n';
-    newSass += '@import "brand/' + packagesJSON.selectedBrand.toLowerCase() + '/core/core";\n';
-
-    _.each(packagesJSON.components, function (moduleName, key) {
-      if (moduleName) {
-        newSass += '@import "brand/' + packagesJSON.selectedBrand.toLowerCase() + '/' + key + '/' + key + '";\n';
-      }
-    });
-
-    return newSass;
-
-  };
 
   /**
    * buffer each content
@@ -79,7 +51,7 @@ var sassImportInjector = function (options) {
     } else {
 
       var ctx = file.contents.toString('utf8'),
-        sassAfterImports = injectImports(ctx);
+        sassAfterImports = sassPackager(ctx, packagesJSON);
 
       file.contents = new Buffer(sassAfterImports);
       callback(null, file);
@@ -95,4 +67,4 @@ var sassImportInjector = function (options) {
 
 };
 
-module.exports = sassImportInjector;
+module.exports = gulpSassPackager;

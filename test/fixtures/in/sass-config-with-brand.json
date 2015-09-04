@@ -1,0 +1,10 @@
+{
+  "selectedBrand": "testBrand",
+  "components": {
+		"module1" : {},
+		"module2" : true,
+		"anotherModule" : {
+			"blah": {}
+		}
+	}
+}

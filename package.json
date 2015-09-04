@@ -1,6 +1,6 @@
 {
   "name": "gulp-sass-packager",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": "https://github.com/crivas/gulp-sass-packager",
   "description": "Dynamically imports sass files into one sass file with passed in a config object",
   "main": "index.js",
@@ -11,6 +11,10 @@
     "gulp-util": "^3.0.6",
     "jsonfile": "^2.2.1",
     "underscore-node": "^0.1.2"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "mocha": "^2.2.5"
   },
   "engines": {
     "node": ">=0.10.0"
