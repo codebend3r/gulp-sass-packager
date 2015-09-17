@@ -1,5 +1,5 @@
 /**
- * Updated by crivas on 08/18/2015
+ * Updated by crivas on 09/17/2015
  * Email: chester.rivas@gmail.com
  * Plugin Name: gulp-sass-packager
  */
@@ -27,7 +27,7 @@ var gulpSassPackager = function (options) {
       packagesJSON = options.packageJSON;
     }
   } else {
-    packagesJSON = './ute-package.json';
+    packagesJSON = './config.json';
   }
 
 

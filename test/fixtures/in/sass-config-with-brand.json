@@ -1,9 +1,14 @@
 {
   "selectedBrand": "testBrand",
   "components": {
-		"module1" : {},
-		"module2" : true,
+		"module1" : {
+      "scssUrl": ""
+    },
+		"module2" : {
+      "scssUrl": ""
+    },
 		"anotherModule" : {
+      "scssUrl": "",
 			"blah": {}
 		}
 	}
