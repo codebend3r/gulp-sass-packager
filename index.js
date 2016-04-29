@@ -30,7 +30,6 @@ var gulpSassPackager = function (options) {
     packagesJSON = './config.json';
   }
 
-
   /**
    * buffer each content
    * @param file
